@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Game | FabianoDEV</title>
+    <link rel="icon" href="./src/logo.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #00d4ff;
+            --secondary-color: #0052d4;
+            --bg-dark: #0a0b10;
+            --glass-bg: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.08);
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: radial-gradient(circle at top right, #16213e, #0a0b10);
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            align-items: center; /* Centralização Vertical */
+            justify-content: center; /* Centralização Horizontal */
+            margin: 0;
+            padding: 40px 0;
+        }
+
+        .main-container {
+            width: 100%;
+            max-width: 1000px;
+        }
+
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+        }
+
+        .game-title {
+            font-weight: 800;
+            letter-spacing: -1px;
+            background: linear-gradient(to right, #fff, var(--primary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .game-preview {
+            border-radius: 18px;
+            border: 1px solid var(--glass-border);
+            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            width: 100%;
+            object-fit: cover;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+        }
+
+        .game-preview:hover {
+            transform: scale(1.02);
+        }
+
+        .badge-skill {
+            background: rgba(0, 212, 255, 0.1);
+            color: var(--primary-color);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            padding: 6px 16px;
+            border-radius: 100px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin: 5px;
+            display: inline-block;
+        }
+
+        .btn-unity {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border: none;
+            font-weight: 700;
+            padding: 14px 32px;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        .btn-unity:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 212, 255, 0.4);
+            color: white;
+        }
+
+        .btn-outline-custom {
+            border: 1px solid var(--glass-border);
+            color: #fff;
+            background: rgba(255,255,255,0.05);
+            padding: 14px 32px;
+            border-radius: 12px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .btn-outline-custom:hover {
+            background: white;
+            color: black;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            text-align: left;
+        }
+
+        .feature-list li {
+            margin-bottom: 12px;
+            color: #a0a0b0;
+            display: flex;
+            align-items: center;
+        }
+
+        .feature-list li i {
+            color: var(--primary-color);
+            margin-right: 12px;
+            font-size: 0.9rem;
+        }
+
+        .contact-link {
+            color: #fff;
+            font-size: 1.5rem;
+            transition: 0.3s;
+            opacity: 0.7;
+        }
+
+        .contact-link:hover {
+            color: var(--primary-color);
+            opacity: 1;
+            transform: scale(1.1);
+        }
+
+        footer {
+            opacity: 0.5;
+            font-size: 0.8rem;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container main-container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                
+                <header class="text-center mb-5" data-aos="fade-down">
+                    <h1 class="display-3 game-title mb-0">Quiz World<span style="font-weight: 300;">Cup</span></h1>
+                    <p class="text-info opacity-75">Desenvolvido com Unity Engine & C#</p>
+                </header>
+
+                <div class="glass-card text-center mb-4" data-aos="fade-up">
+                    <img src="./src/logo.png" alt="Preview" class="game-preview mb-5">
+                    
+                    <h2 class="h3 mb-3">Sobre o Projeto</h2>
+                    <p class="text-secondary mx-auto mb-4" style="max-width: 650px; line-height: 1.7;">
+                        Uma experiência interativa desenvolvida para consolidar conhecimentos em 
+                        <strong>Arquitetura de Sistemas</strong> no Unity, utilizando padrões de projeto 
+                        para gerenciamento de UI e persistência de dados.
+                    </p>
+
+                    <div class="mb-5">
+                        <span class="badge-skill">Unity 2022.3 LTS</span>
+                        <span class="badge-skill">C# Scripting</span>
+                        <span class="badge-skill">UI Toolkit</span>
+                        <span class="badge-skill">JSON Persistence</span>
+                    </div>
+
+                    <div class="d-flex flex-wrap justify-content-center gap-3">
+                        <a href="https://drive.usercontent.google.com/download?id=1KZy1nf3vDmuQ8SuzGWp0ZVkL8FHFXK8B&export=download&authuser=0&confirm=t&uuid=26c77b48-9840-4e1b-aaec-7dc68ce4610b&at=AN8xHopOhj2V8KrgIkOaNovcfbZw:1753933977710" class="btn btn-unity">
+                            <i class="fas fa-play me-2"></i> Jogar
+                        </a>
+                        <a href="https://github.com/FBGdev" class="btn btn-outline-custom">
+                            <i class="fab fa-github me-2"></i> Repositório
+                        </a>
+                    </div>
+                </div>
+
+                <div class="row g-4">
+                    <div class="col-md-6" data-aos="fade-right" data-aos-delay="200">
+                        <div class="glass-card p-4 h-100">
+                            <h4 class="mb-4"><i class="fas fa-layer-group me-2 text-info"></i> Funcionalidades</h4>
+                            <ul class="feature-list">
+                                <li><i class="fas fa-check-circle"></i> Pool de perguntas aleatórias</li>
+                                <li><i class="fas fa-check-circle"></i> Feedback háptico e visual</li>
+                                <li><i class="fas fa-check-circle"></i> Highscore persistente</li>
+                                <li><i class="fas fa-check-circle"></i> Layout Multi-resolução</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-6" data-aos="fade-left" data-aos-delay="200">
+                        <div class="glass-card p-4 h-100 d-flex flex-column justify-content-center align-items-center text-center">
+                            <h4 class="mb-3">Vamos nos conectar?</h4>
+                            <p class="text-secondary mb-4">Interessado em desenvolvimento de jogos? Mande uma mensagem!</p>
+                            <div class="d-flex gap-4">
+                                <a href="https://linkedin.com/in/fabianodev" class="contact-link"><i class="fab fa-linkedin"></i></a>
+                                <a href="mailto:fabianodev@yahoo.com" class="contact-link"><i class="fas fa-envelope"></i></a>
+                                <a href="https://wa.me/5521983304162?text=Ol%C3%A1%21%20Vim%20pelo%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20conversar." class="contact-link"><i class="fab fa-whatsapp"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <footer class="text-center">
+                    <p>&copy; 2026 • Criado por Fabiano Gonçalves</p>
+                </footer>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+    </script>
+</body>
+</html>
